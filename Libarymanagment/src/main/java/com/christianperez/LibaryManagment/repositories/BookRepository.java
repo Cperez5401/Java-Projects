@@ -9,8 +9,6 @@ import com.christianperez.LibaryManagment.models.Book;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
 	List<Book> findAll();
-	
-	public List<Book> search(String keyword);
 
 	List<Book> findByAuthorContaining(String search);
 

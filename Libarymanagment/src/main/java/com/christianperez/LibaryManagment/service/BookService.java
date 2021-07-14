@@ -13,7 +13,7 @@ public class BookService {
 
 	public BookService(BookRepository bookRepo) {
 		this.bookRepo = bookRepo;
-	}
+	}	
 
 	// returns all
 	public List<Book> findAllBooks() {
@@ -23,13 +23,6 @@ public class BookService {
 	// retrieves
 	public Book findBook(Long id) {
 		return this.bookRepo.findById(id).orElse(null);
-	}
-	
-	public List<Book> searchBooks(String keyword) {
-		if (keyword != null) {
-			return bookRepo.search(keyword);
-		}
-		return bookRepo.findAll();
 	}
 
 	// Updates

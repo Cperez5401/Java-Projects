@@ -1,0 +1,5 @@
+package com.christianperez.LibaryManagment.repositories;
+
+public interface SearchRepository {
+
+}

@@ -1,0 +1,48 @@
+package com.christianperez.LibaryManagment.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.christianperez.LibaryManagment.models.Book;
+import com.christianperez.LibaryManagment.repositories.BookRepository;
+import com.christianperez.LibaryManagment.repositories.SearchRepository;
+
+@Service
+public class BookService {
+	private final BookRepository bookRepo;
+	private final SearchRepository searchRepo;
+
+	public BookService(BookRepository bookRepo, SearchRepository searchRepo) {
+		this.bookRepo = bookRepo;
+		this.searchRepo = searchRepo;
+	}	
+
+	// returns all
+	public List<Book> findAllBooks() {
+		return bookRepo.findAll();
+	}
+
+	// retrieves
+	public Book findBook(Long id) {
+		return this.bookRepo.findById(id).orElse(null);
+	}
+	
+	public List<Book> searchBooks(String keyword) {
+		if (keyword != null) {
+			return searchRepo.search(keyword);
+		}
+		return bookRepo.findAll();
+	}
+
+	// Updates
+	public Book updateBook(Book B) {
+		return bookRepo.save(B);
+	}
+
+	// Deletes
+	public void deleteBook(long id) {
+		bookRepo.deleteById(id);
+	}
+
+}
