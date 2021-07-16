@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="addForm">
 			<h1>Add A Book to our libary</h1>
-			<form:form action="/addresults" method="POST" modelAttribute="book">
+			<form:form action="/addresults" method="POST" modelAttribute ="book">
 				<label>Book Name: <input type="text" name="bookName"></label>
 				<label>Author: <input type="text" name="author"></label>
 				<label>Price: <input type="number" name="price"></label>

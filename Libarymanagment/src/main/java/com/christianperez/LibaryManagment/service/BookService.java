@@ -14,7 +14,11 @@ public class BookService {
 	public BookService(BookRepository bookRepo) {
 		this.bookRepo = bookRepo;
 	}	
-
+	
+	//Creates book
+	public Book createBook(Book B) {
+		return bookRepo.save(B);
+	}
 	// returns all
 	public List<Book> findAllBooks() {
 		return bookRepo.findAll();
